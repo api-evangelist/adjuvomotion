@@ -1,0 +1,184 @@
+generated: '2026-09-07'
+method: searched
+source: >-
+  https://www.senseglove.com/developer/ , https://senseglove.gitlab.io/SenseGloveDocs/ and the
+  provider's own GitHub organization https://github.com/Adjuvo (org display name "SenseGlove",
+  blog http://www.senseglove.com), read through api.github.com/repos/Adjuvo/*/releases on
+  2026-09-07. Public package registries were queried directly and are recorded under
+  registry_probes below.
+provider: Adjuvo Motion B.V. (trading as SenseGlove)
+note: >-
+  Adjuvo Motion ships a NATIVE device SDK, not an HTTP client library. Nothing is published to npm,
+  PyPI, Maven Central, NuGet, RubyGems, crates.io or the ROS index; every first-party artifact is
+  distributed as a GitHub release, a GitHub default branch, or an engine-marketplace listing. Where a
+  repository publishes no tagged release the version is recorded as null with the reason, per the
+  pipeline contract — absent fields would read as "not checked".
+package_count: 12
+official_count: 12
+packages:
+- name: SenseGlove-API
+  title: SenseGlove Core API (C++ / C#)
+  official: true
+  languages: [C++, C#]
+  registry: github
+  repository: https://github.com/Adjuvo/SenseGlove-API
+  distribution: >-
+    GitHub release; headers in incl/ plus per-platform .lib/.dll binaries in lib/. No package-manager
+    coordinate is published.
+  version: v2.102.1
+  published: '2024-08-22'
+  release_name: C++ v2.0 with SenseCom v1.7.2
+  note: >-
+    DECAY SIGNAL: the last tagged release of the native Core API is 2024-08-22, more than 22 months
+    older than the Unity plugin it underpins (v2.10.0, 2026-06-19) and than SenseCom (v1.9.2,
+    2026-03-02). The repository default branch was pushed 2026-03-11, so work continues untagged —
+    a consumer pinning to a release is pinning to 2024.
+- name: SenseGlove-Unity
+  title: SenseGlove Unity Plugin
+  official: true
+  languages: [C#]
+  registry: github
+  repository: https://github.com/Adjuvo/SenseGlove-Unity
+  distribution: GitHub release (.unitypackage / repository import). Not on OpenUPM or npm.
+  docs: https://unity.docs.senseglove.com/
+  version: v2.10.0
+  published: '2026-06-19'
+  release_name: v2.10.0 - Unity 6, Performance and Offset Detection updates
+- name: SenseGlove-Unreal-Plugin
+  title: SenseGlove Unreal Engine Plugin
+  official: true
+  languages: [C++, Blueprint]
+  registry: unreal-marketplace
+  repository: https://github.com/Adjuvo/SenseGlove-Unreal-Plugin
+  distribution: >-
+    Epic marketplace listing linked from the developer page
+    (https://www.unrealengine.com/marketplace/en-US/product/the-senseglove-unreal-engine-plugin) with
+    source and examples on https://dev.azure.com/SenseGlove/.
+  docs: https://unreal.docs.senseglove.com/
+  version: null
+  published: null
+  note: >-
+    Checked, nothing to record. The GitHub mirror publishes no tagged release (last push 2021-06-29)
+    and the Epic marketplace / Fab listing answered HTTP 403 to an unauthenticated fetch on
+    2026-09-07, so no published version string could be read from a first-party surface. The Azure
+    DevOps org answered HTTP 203 (anonymous access not granted).
+- name: SenseCom
+  title: SenseCom device communication daemon
+  official: true
+  languages: [C#]
+  registry: github
+  repository: https://github.com/Adjuvo/SenseCom
+  distribution: GitHub release binaries (Windows/Linux installers).
+  docs: https://senseglove.gitlab.io/SenseGloveDocs/sensecom/overview.html
+  version: v1.9.2
+  published: '2026-03-02'
+  release_name: v1.9.2 - Internal logging backup
+- name: SenseGlove-R1-API
+  title: SenseGlove R1 Python API
+  official: true
+  languages: [Python]
+  registry: github
+  repository: https://github.com/Adjuvo/SenseGlove-R1-API
+  distribution: GitHub default branch only.
+  version: null
+  published: null
+  note: >-
+    Checked, nothing to record. No tagged release exists (default branch pushed 2026-07-23) and the
+    package is absent from PyPI — pypi.org/pypi/senseglove/json, /sense-glove/, /senseglove-api/ and
+    /pysenseglove/ all returned HTTP 404 on 2026-09-07. Consumers install from git.
+- name: senseglove_ros
+  title: SenseGlove ROS workspace (reference implementation)
+  official: true
+  languages: [C++]
+  registry: github
+  repository: https://github.com/Adjuvo/senseglove_ros
+  distribution: GitHub default branch; not released to the ROS index.
+  docs: https://senseglove.gitlab.io/SenseGloveDocs/ros/ros-index.html
+  version: null
+  published: null
+  note: >-
+    Checked, nothing to record. No tagged release (default branch pushed 2026-03-15) and
+    https://index.ros.org/p/senseglove_ros/ returned HTTP 404, so the package is not in the ROS
+    distribution index and carries no rosdistro version.
+- name: senseglove_r1_ros
+  title: SenseGlove R1 ROS package
+  official: true
+  languages: [Python]
+  registry: github
+  repository: https://github.com/Adjuvo/senseglove_r1_ros
+  distribution: GitHub default branch.
+  version: null
+  published: null
+  note: Checked, nothing to record — no tagged release; default branch pushed 2026-08-04.
+- name: senseglove_noetic
+  title: SenseGlove ROS 1 Noetic workspace
+  official: true
+  languages: [C++]
+  registry: github
+  repository: https://github.com/Adjuvo/senseglove_noetic
+  distribution: GitHub default branch.
+  version: null
+  published: null
+  note: Checked, nothing to record — no tagged release; default branch pushed 2022-08-24.
+- name: senseglove_melodic
+  title: SenseGlove ROS 1 Melodic workspace
+  official: true
+  languages: [C++]
+  registry: github
+  repository: https://github.com/Adjuvo/senseglove_melodic
+  distribution: GitHub release.
+  version: v1.0.0
+  published: '2022-07-26'
+  note: >-
+    ROS 1 Melodic reached end of life in May 2023; this workspace has not been tagged since 2022.
+- name: Unity-Template
+  title: SenseGlove Unity VR template project
+  official: true
+  languages: [C#]
+  registry: github
+  repository: https://github.com/Adjuvo/Unity-Template
+  distribution: GitHub template repository.
+  version: null
+  published: null
+  note: Checked, nothing to record — no tagged release; default branch pushed 2026-05-28.
+- name: nova2-firmware
+  title: Nova 2 haptic glove firmware
+  official: true
+  languages: [firmware]
+  registry: github
+  repository: https://github.com/Adjuvo/nova2-firmware
+  distribution: GitHub release binaries, flashed through SenseCom.
+  version: v2.0.1
+  published: '2025-05-12'
+  release_name: v2.0.1 - BLE Release
+- name: firmware-releases
+  title: SenseGlove DK1 firmware releases
+  official: true
+  languages: [firmware]
+  registry: github
+  repository: https://github.com/Adjuvo/firmware-releases
+  distribution: GitHub release binaries.
+  version: v1.0.0
+  published: '2024-06-11'
+registry_probes:
+- registry: npm
+  query: registry.npmjs.org/senseglove
+  status: 404
+- registry: npm
+  query: registry.npmjs.org/@senseglove/api
+  status: 404
+- registry: pypi
+  query: pypi.org/pypi/senseglove/json
+  status: 404
+- registry: pypi
+  query: pypi.org/pypi/senseglove-api/json
+  status: 404
+- registry: openupm
+  query: package.openupm.com/com.senseglove.sdk
+  status: 404
+- registry: ros-index
+  query: index.ros.org/p/senseglove_ros/
+  status: 404
+- registry: unreal-marketplace
+  query: unrealengine.com/marketplace/en-US/product/the-senseglove-unreal-engine-plugin
+  status: 403

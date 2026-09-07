@@ -1,0 +1,6 @@
+# This file is added by Plesk
+# If you are the site owner and want to replace this content, upload your security.txt file to .well-known/security.txt
+
+Contact: https://www.mijndomein.nl/security-policy
+Preferred-Languages: nl, en
+Expires: 2026-10-05T00:00:00z

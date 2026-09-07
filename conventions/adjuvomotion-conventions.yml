@@ -1,0 +1,72 @@
+generated: '2026-09-07'
+method: derived
+source: >-
+  Derived from https://senseglove.gitlab.io/SenseGloveDocs/native/core-api-intro.html ,
+  .../native/core-api-arch.html , .../compatibility.html and the artifacts already in this repo
+  (packages/, lifecycle/, conformance/). No OpenAPI exists to derive from.
+surface_class: native-in-process-sdk
+note: >-
+  READ THIS BEFORE READING THE FIELDS BELOW. Adjuvo Motion's integration surface is a compiled C++/C#
+  library that talks to USB/Bluetooth hardware through a local daemon. It is not an HTTP API, so the
+  runtime semantics this artifact normally captures — auth style, pagination, request ids,
+  rate-limit headers, error envelopes — have no counterpart here. They are recorded as `na` with the
+  reason, which is a different fact from "the provider failed to document them".
+authentication:
+  style: none
+  note: >-
+    No credentials of any kind. Authorization is physical possession of the device; the library
+    attaches to whatever hardware SenseCom/SGConnect has connected locally.
+connection_model:
+  broker: SenseCom desktop process, or the SGConnect C++ library for headless use
+  entry_point: SGCore::DeviceList
+  device_base_class: SGCore::SGDevice
+  namespace: SGCore
+  note: >-
+    Applications never open the device themselves. SenseCom (UI) or SGConnect (library) owns the
+    connection in the background and the Core API attaches to it — so a "connection failure" in an
+    integration is usually a daemon-not-running condition, not an API condition.
+haptic_modalities: [force-feedback, vibrotactile, wrist-squeeze]
+pagination:
+  style: na
+  reason: No collection-over-HTTP surface exists; DeviceList enumerates locally attached hardware.
+error_envelope:
+  style: na
+  reason: >-
+    In-process return values and device state, not an HTTP error body. See
+    errors/ — no problem-type catalog is derivable without a spec.
+rate_limit_signaling:
+  style: na
+  reason: No HTTP surface; see rate-limits/adjuvomotion-rate-limits.yml.
+request_id_tracing:
+  supported: false
+  note: >-
+    No request correlation id. SenseCom writes a local sessionLog.txt used for debugging, which is
+    the nearest equivalent and is per-machine, not per-call.
+versioning:
+  style: compiled-dependency
+  note: See lifecycle/adjuvomotion-lifecycle.yml — semver git tags per component, no negotiation.
+idempotency:
+  coverage: na
+  scope: []
+  mechanism: none
+  note: >-
+    `na`, not `none`. Haptic commands are level-setting rather than transactional — re-sending the
+    same force-feedback or vibration command sets the same state — so there is no double-fire hazard
+    for a replay-protection mechanism to address, and no network layer on which to carry an
+    Idempotency-Key. No `type: Idempotency` pointer is emitted in apis.yml.
+dry_run_mode:
+  supported: na
+  note: >-
+    `na`. SenseCom ships a hardware troubleshooting/test mode (right-click a device to send test
+    haptics) which lets a developer exercise the device by hand, but there is no programmatic
+    rehearsal mode against a stateful service, because there is no stateful service.
+reversibility:
+  grade: na
+  reason: >-
+    `na`, not zero. There is no persistent write surface to reverse: the API's effects are transient
+    physical actuation of a glove the operator is wearing, and every command is superseded by the
+    next one (setting force feedback to zero releases it). Nothing is created, charged, deleted or
+    published, so there is no cancel/refund/void/restore operation to document and no window to
+    state. Asserting a reversal window here would be inventing one.
+  write_surface: transient-actuation-only
+  reversal_operations: []

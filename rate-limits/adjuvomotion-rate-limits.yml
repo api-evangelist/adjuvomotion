@@ -1,0 +1,15 @@
+generated: '2026-09-07'
+method: searched
+source: >-
+  https://senseglove.gitlab.io/SenseGloveDocs/ (full navigation walked), 
+  https://www.senseglove.com/developer/ and https://www.senseglove.com/support/ , read 2026-09-07.
+limit_count: 0
+limits: []
+response_headers: []
+exhaustion_status: null
+note: >-
+  No rate limits are published, and none apply: Adjuvo Motion exposes no HTTP API. The integration
+  surface is an in-process C++/C# library driving locally attached hardware over USB/Bluetooth, so
+  the governing constraints are the device's own update rate and the Bluetooth link, not a
+  server-side quota. There are no X-RateLimit-*/RateLimit-*/Retry-After headers to record and no
+  429 to observe, because there is no request. This is an honest zero, not an undocumented limit.

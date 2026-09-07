@@ -1,0 +1,76 @@
+generated: '2026-09-07'
+method: searched
+source: >-
+  https://unreal.docs.senseglove.com/next/advanced-topics/openxr/third-party-integrations/index.html ,
+  https://senseglove.gitlab.io/SenseGloveDocs/ros/ros-index.html ,
+  https://senseglove.gitlab.io/SenseGloveDocs/native/core-api-intro.html and the provider's public
+  repositories at https://github.com/Adjuvo , read 2026-09-07.
+note: >-
+  Adjuvo Motion publishes no HTTP contract, so every web-API cross-cutting standard below is recorded
+  as not-applicable-and-absent rather than as a failure: there is no request/response surface for
+  OAuth, RFC 9457 problem details, JSON:API or HTTP pagination to conform to. The standards that DO
+  apply to this market are XR and robotics interface standards, and the provider makes one explicit,
+  citable conformance claim in its own documentation (OpenXR hand tracking).
+conformance:
+- id: openxr-hand-tracking
+  name: OpenXR — hand tracking (XR_EXT_hand_tracking style interface)
+  category: domain-standard
+  domain: extended-reality
+  conforms: true
+  evidence: >-
+    https://unreal.docs.senseglove.com/next/advanced-topics/openxr/third-party-integrations/index.html
+    — "The SenseGlove Unreal Engine Plugin registers itself as an `OpenXRHandTracking` provider,
+    making it a fully compatible, drop-in replacement for Epic's own OpenXRHandTracking plugin" and
+    "As the SenseGlove Unreal Engine Plugin is fully OpenXR-compliant, it provides OpenXR
+    hand-tracking data in the expected format."
+  note: >-
+    This is the domain-standard signature for this provider's market. A consumer already consuming
+    OpenXR hand-tracking data integrates a SenseGlove with no bespoke connector; only the haptic
+    output path (force feedback, vibrotactile, wrist squeeze) requires calling SenseGlove's own API,
+    because OpenXR hand tracking has no haptic-output equivalent. The claim is made for the Unreal
+    plugin specifically — it is not asserted for the Unity plugin or the native Core API.
+- id: ros1
+  name: ROS 1 (Melodic / Noetic) package interface
+  category: domain-standard
+  domain: robotics
+  conforms: true
+  evidence: >-
+    https://senseglove.gitlab.io/SenseGloveDocs/ros/ros-index.html plus first-party ROS workspaces
+    https://github.com/Adjuvo/senseglove_ros , https://github.com/Adjuvo/senseglove_noetic ,
+    https://github.com/Adjuvo/senseglove_melodic and https://github.com/Adjuvo/senseglove_r1_ros
+  note: >-
+    Conformance is to the ROS 1 package/workspace convention only. The packages are NOT released into
+    the ROS distribution index — https://index.ros.org/p/senseglove_ros/ returned HTTP 404 on
+    2026-09-07 — so there is no rosdistro entry, no binary .deb and no ROS 2 support recorded.
+- id: oauth2
+  name: OAuth 2.0
+  conforms: false
+  evidence: >-
+    No authorization surface exists. https://www.senseglove.com/.well-known/oauth-authorization-server
+    → 404 and https://www.senseglove.com/.well-known/openid-configuration → 404 (probed 2026-09-07);
+    the documented integration surface is an in-process native library with no credentials.
+- id: oidc
+  name: OpenID Connect
+  conforms: false
+  evidence: https://www.senseglove.com/.well-known/openid-configuration → 404 (probed 2026-09-07).
+- id: rfc9457
+  name: RFC 9457 Problem Details for HTTP APIs
+  conforms: false
+  evidence: >-
+    Not applicable — no HTTP API is published, so no error envelope exists. The native Core API
+    returns values and device states in-process.
+- id: rfc9116
+  name: RFC 9116 security.txt
+  conforms: false
+  evidence: >-
+    https://www.senseglove.com/.well-known/security.txt → 404 (probed 2026-09-07). The only 200 in
+    the sweep, https://www.adjuvomotion.com/.well-known/security.txt, is the Plesk hosting default
+    naming mijndomein.nl as contact, not a policy Adjuvo Motion authored.
+- id: openapi
+  name: OpenAPI
+  conforms: false
+  evidence: >-
+    Probed /openapi.json, /openapi.yaml, /swagger.json and /api-docs on www.senseglove.com,
+    senseglove.com, adjuvomotion.com, www.adjuvomotion.com, unity.docs.senseglove.com and
+    unreal.docs.senseglove.com on 2026-09-07 — every path returned 404, 500 or a WordPress HTML
+    404 page. No OpenAPI is published because no HTTP API is published.

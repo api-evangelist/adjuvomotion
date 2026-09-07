@@ -1,0 +1,57 @@
+generated: '2026-09-07'
+method: searched
+source: >-
+  https://senseglove.gitlab.io/SenseGloveDocs/compatibility.html ,
+  https://senseglove.gitlab.io/SenseGloveDocs/sensecom/update-guide.html ,
+  https://senseglove.gitlab.io/SenseGloveDocs/updating-firmware.html and
+  api.github.com/repos/Adjuvo/*/releases, read 2026-09-07.
+versioning:
+  scheme: semver
+  surface: >-
+    Git tags and GitHub releases on the first-party repositories. Versions are per-component
+    (Core API, Unity plugin, SenseCom, firmware) and are not unified behind a single product version;
+    the release notes cross-reference which SenseCom build a given Core API release pairs with
+    (e.g. "C++ v2.0 with SenseCom v1.7.2").
+  current:
+    core_api: v2.102.1 (2024-08-22)
+    unity_plugin: v2.10.0 (2026-06-19)
+    sensecom: v1.9.2 (2026-03-02)
+    nova2_firmware: v2.0.1 (2025-05-12)
+  in_url: false
+  in_header: false
+  note: >-
+    No API version negotiation exists — the integration is a compiled dependency, so the consumer's
+    version is whichever binary they linked.
+compatibility:
+  published: true
+  url: https://senseglove.gitlab.io/SenseGloveDocs/compatibility.html
+  covers: [HMD compatibility, software compatibility, VR tracking hardware, custom tracking hardware]
+  note: >-
+    The provider dates its own matrix: "This list was last updated on 18/09/2025", with the caveat
+    "This information may not always be up to date". That is an honest staleness marker, and it is
+    the closest thing to a support-lifecycle statement the company publishes.
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    No deprecation or end-of-life policy is published for any component. RFC 8594 Sunset/Deprecation
+    headers are not applicable — there is no HTTP surface. The clearest de facto deprecation in the
+    surface is unannounced: the senseglove_melodic workspace targets ROS 1 Melodic, which reached
+    upstream end of life in May 2023, and has not been tagged since 2022-07-26.
+support:
+  sla_published: false
+  status_page: false
+  status_page_note: >-
+    No status page exists. status.senseglove.com does not resolve (NXDOMAIN) and
+    https://senseglove.statuspage.io redirects to Atlassian's own marketing page
+    (https://www.atlassian.com/software/statuspage, HTTP 200) — that is an unclaimed subdomain, not a
+    SenseGlove status page. Probed 2026-09-07.
+  channels:
+  - https://www.senseglove.com/support/
+  - https://www.senseglove.com/faq/
+  - https://github.com/Adjuvo/SenseGlove-API/issues
+deprecated_operations: []
+note: >-
+  deprecated_operations is empty because there is no OpenAPI to derive it from, not because a spec
+  was checked and found clean.

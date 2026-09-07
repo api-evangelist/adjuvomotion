@@ -1,0 +1,21 @@
+generated: '2026-09-07'
+method: searched
+source: >-
+  https://www.senseglove.com/developer/ , https://senseglove.gitlab.io/SenseGloveDocs/ ,
+  https://github.com/Adjuvo (14 public repositories, all enumerated), plus direct probes of
+  /.well-known/* on every senseglove.com and adjuvomotion.com host on 2026-09-07.
+status: none
+note: >-
+  No Model Context Protocol server is published by Adjuvo Motion / SenseGlove, hosted or local, and
+  none can be derived: the company publishes no OpenAPI, GraphQL or other HTTP contract from which a
+  candidate tool list could be built. Its developer surface is an in-process native C++/C# device
+  library (SGCore) plus engine plugins and ROS packages, which an MCP client cannot reach over the
+  network. This file records a completed search, not a surface — no `type: MCPServer` pointer is
+  wired into apis.yml.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: none
+  verified: searched

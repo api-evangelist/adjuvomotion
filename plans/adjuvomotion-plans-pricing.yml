@@ -1,0 +1,40 @@
+generated: '2026-09-07'
+method: searched
+source: https://www.senseglove.com/shop/ (HTTP 200, read 2026-09-07)
+plan_count: 0
+plans: []
+note: >-
+  Adjuvo Motion publishes NO API plans, tiers, quotas or metered pricing, because it publishes no
+  metered API — the SDKs, engine plugins, ROS packages and firmware are free downloads from GitHub
+  and the revenue model is hardware. plan_count is therefore an honest 0 rather than an omission.
+  What the company DOES publish is list pricing for its physical products and services, openly and
+  without a quote gate, recorded below because it is the pricing a buyer actually meets.
+published_pricing:
+- item: Nova 2
+  kind: hardware
+  price: 6299.00
+  currency: EUR
+  tax: excluding VAT
+  url: https://www.senseglove.com/product/nova-2/
+- item: Consultancy Hours
+  kind: professional-services
+  price: 1199.00
+  currency: EUR
+  tax: excluding VAT
+  unit: 10 hours
+  description: 10 consultancy hours from SenseGlove's VR developers.
+  url: https://www.senseglove.com/product/consultancy-hours/
+quote_gated:
+- item: Nova (previous generation)
+  url: https://www.senseglove.com/nova-get-a-quote/
+- item: R1 (Rembrandt) tele-robotics glove
+  note: No public price; routed through sales, resellers or the trial program.
+other_commercial_routes:
+- name: Trial program
+  url: https://www.senseglove.com/trial/
+- name: Academic program
+  url: https://www.senseglove.com/academic-program/
+- name: Reseller locator
+  url: https://www.senseglove.com/find-reseller/
+- name: Partner program
+  url: https://www.senseglove.com/become-a-partner/

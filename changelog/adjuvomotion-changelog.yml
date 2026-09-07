@@ -1,0 +1,84 @@
+generated: '2026-09-07'
+method: searched
+source: >-
+  api.github.com/repos/Adjuvo/{SenseCom,SenseGlove-Unity,SenseGlove-API,nova2-firmware}/releases and
+  https://senseglove.gitlab.io/SenseGloveDocs/sensecom/changeLog.html , read 2026-09-07.
+scheme: semver
+surfaces:
+- name: GitHub releases (live)
+  url: https://github.com/Adjuvo
+  dated: true
+  note: >-
+    The only current, dated record of change. Per-component, with release notes on each tag.
+- name: SenseCom changelog in the docs (stale)
+  url: https://senseglove.gitlab.io/SenseGloveDocs/sensecom/changeLog.html
+  dated: false
+  note: >-
+    STALE AND UNDATED. The documented changelog stops at SenseCom v1.3.1 while the shipping release
+    is v1.9.2 (2026-03-02) — roughly two and a half years and six minor versions of drift — and it
+    carries no dates at all. A reader who trusts the documentation site is reading a 2023-era record.
+current:
+  sensecom: v1.9.2
+  unity_plugin: v2.10.0
+  core_api: v2.102.1
+  nova2_firmware: v2.0.1
+entries:
+- component: SenseCom
+  version: v1.9.2
+  date: '2026-03-02'
+  highlights: Internal logging backup
+  breaking: false
+- component: SenseGlove Unity Plugin
+  version: v2.10.0
+  date: '2026-06-19'
+  highlights: Unity 6 support, performance and offset-detection updates
+  breaking: false
+- component: SenseCom
+  version: v1.9.1
+  date: '2026-02-24'
+  highlights: Keep-alive function and battery troubleshooting
+  breaking: false
+- component: SenseCom
+  version: v1.9.0
+  date: '2026-01-14'
+  highlights: BLE stabilization and auto-update functionality
+  breaking: false
+- component: SenseGlove Unity Plugin
+  version: v2.9.0
+  date: '2025-09-15'
+  highlights: New calibration void and bug fixes
+  breaking: false
+- component: SenseCom
+  version: v1.8.4
+  date: '2025-08-01'
+  highlights: Unreal Engine haptics fixes
+  breaking: false
+- component: SenseGlove Unity Plugin
+  version: v2.8.1
+  date: '2025-06-25'
+  highlights: BLE bugfixes and standalone mode
+  breaking: false
+- component: SenseCom
+  version: v1.8.1
+  date: '2025-05-09'
+  highlights: The BLE update
+  breaking: false
+- component: Nova 2 firmware
+  version: v2.0.1
+  date: '2025-05-12'
+  highlights: BLE release
+  breaking: false
+- component: SenseGlove Unity Plugin
+  version: v2.8.0
+  date: '2025-05-12'
+  highlights: BLE binaries and Vive Ultimate Tracker offsets
+  breaking: false
+- component: SenseGlove Core API
+  version: v2.102.1
+  date: '2024-08-22'
+  highlights: C++ v2.0 paired with SenseCom v1.7.2
+  breaking: false
+  note: >-
+    The most recent tagged release of the native Core API. Everything above it in this list is a
+    plugin, daemon or firmware release — the library those components wrap has not been tagged since
+    2024.

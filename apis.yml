@@ -1,23 +1,111 @@
 aid: adjuvomotion
-name: Adjuvomotion
-description: 'Adjuvomotion is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+name: Adjuvo Motion
+description: >-
+  Adjuvo Motion B.V. trades publicly as SenseGlove, a Dutch haptics company headquartered at the
+  Katoenhuis in Rotterdam with engineering roots in Delft. It designs and manufactures force-feedback
+  and vibrotactile gloves for virtual and extended reality — the Nova 2, the Nova and the DK1 — plus
+  the R1 exoskeleton glove used for tele-robotics and imitation learning, sold into immersive
+  training, virtual prototyping, academic research and humanoid robotics. Its developer surface is a
+  native device API rather than a web service: a C++ and C# Core API in the SGCore namespace, the
+  SGConnect communications library, the SenseCom desktop daemon, first-party Unity and Unreal Engine
+  plugins, ROS 1 workspaces and a Python API for the R1. No public HTTP, REST or GraphQL API is
+  published.
 url: https://raw.githubusercontent.com/api-evangelist/adjuvomotion/refs/heads/main/apis.yml
+image: https://www.senseglove.com/wp-content/uploads/2022/05/SenseGlove-home-featured.jpg
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-07'
 modified: '2026-09-07'
 tags:
-- Company
-apis: []
+- Haptics
+- Virtual Reality
+- Extended Reality
+- Robotics
+- Hardware
+- SDK
+- Simulation
+- Training
+- Teleoperation
+- Wearables
+apis:
+- aid: adjuvomotion:senseglove-core-api
+  name: SenseGlove Core API
+  position: Producing
+  humanURL: https://www.senseglove.com/developer/
+  image: https://www.senseglove.com/wp-content/uploads/2022/05/SenseGlove-home-featured.jpg
+  description: >-
+    The SenseGlove Core API is a native C++ and C# library (SGCore namespace) that reads sensor and
+    hand-pose data from, and sends force-feedback, vibrotactile and wrist-squeeze commands to,
+    SenseGlove hardware. It is distributed as headers plus per-platform .lib/.dll binaries from the
+    SenseGlove-API GitHub repository and talks to devices through the SGConnect library / SenseCom
+    background process. It is an in-process device API, not an HTTP endpoint, so it declares no
+    baseURL, no authentication scheme and no rate limits.
+  tags:
+  - Haptics
+  - SDK
+  - Hardware
+  properties:
+  - type: Documentation
+    url: https://senseglove.gitlab.io/SenseGloveDocs/
+  - type: APIReference
+    url: https://senseglove.gitlab.io/SenseGloveDocs/native/core-api-intro.html
+  - type: GettingStarted
+    url: https://senseglove.gitlab.io/SenseGloveDocs/quick-start.html
+  - type: SourceCode
+    url: https://github.com/Adjuvo/SenseGlove-API
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/adjuvomotion-domain-security.yml
 - type: Website
-  url: https://equityzen.com/company/adjuvomotion
+  url: https://www.senseglove.com/
+- type: DeveloperPortal
+  url: https://www.senseglove.com/developer/
+- type: Documentation
+  url: https://senseglove.gitlab.io/SenseGloveDocs/
+- type: APIReference
+  url: https://senseglove.gitlab.io/SenseGloveDocs/native/core-api-intro.html
+- type: GettingStarted
+  url: https://senseglove.gitlab.io/SenseGloveDocs/quick-start.html
+- type: Support
+  url: https://www.senseglove.com/support/
+- type: Blog
+  url: https://www.senseglove.com/news-and-updates/
+- type: GitHubOrganization
+  url: https://github.com/Adjuvo
+- type: Pricing
+  url: https://www.senseglove.com/shop/
+- type: Login
+  url: https://www.senseglove.com/my-account/
+- type: TermsOfService
+  url: https://www.senseglove.com/terms-of-sale/
+- type: PrivacyPolicy
+  url: https://www.senseglove.com/privacy/
+- type: Packages
+  url: packages/adjuvomotion-packages.yml
+- type: SDKs
+  url: packages/adjuvomotion-packages.yml
+- type: LLMsTxt
+  url: llms/adjuvomotion-llms.txt
+- type: Conformance
+  url: conformance/adjuvomotion-conformance.yml
+- type: Lifecycle
+  url: lifecycle/adjuvomotion-lifecycle.yml
+- type: ChangeLog
+  url: changelog/adjuvomotion-changelog.yml
+- type: Conventions
+  url: conventions/adjuvomotion-conventions.yml
+- type: Plans
+  url: plans/adjuvomotion-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/adjuvomotion-rate-limits.yml
+x-enrichment:
+  date: '2026-09-07'
+  status: enriched
+  artifacts_added: 11
+  pass: local-v3

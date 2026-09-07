@@ -1,0 +1,145 @@
+generated: '2026-09-07'
+method: probed
+source: >-
+  Direct unauthenticated HTTPS probes of every host this record knows — the registrable domain and
+  www for both the trading domain (senseglove.com) and the legacy corporate domain
+  (adjuvomotion.com), the documentation hosts (senseglove.gitlab.io, unity.docs.senseglove.com,
+  unreal.docs.senseglove.com). There are no API baseURL or OpenAPI servers[] hosts: Adjuvo Motion
+  publishes no HTTP API.
+note: >-
+  NOTHING SCOREABLE IS SERVED. The only 200 in the whole sweep is
+  https://www.adjuvomotion.com/.well-known/security.txt, and it is the Plesk control-panel default
+  the hosting provider writes automatically — its own first line says "This file is added by Plesk"
+  and its Contact: points at the registrar/host (mijndomein.nl), not at Adjuvo Motion. Every other
+  path on that host, including "/", returns HTTP 500, so the domain is a dead legacy surface. It is
+  saved verbatim below for the record but NO WellKnown or SecurityTxt pointer is emitted in apis.yml:
+  the pointer asserts the PROVIDER serves that surface, and the provider did not author this file.
+  senseglove.gitlab.io sits behind a Cloudflare interstitial that answers HTTP 403 to a
+  non-browser client on every path (the docs themselves render fine for a browser), so its
+  /.well-known/ results are inconclusive rather than confirmed absences.
+hosts:
+- host: www.senseglove.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: senseglove.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: www.adjuvomotion.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: adjuvomotion-security.txt
+    note: >-
+      Plesk-generated default, not authored by Adjuvo Motion. Contact:
+      https://www.mijndomein.nl/security-policy (the hosting provider). Expires 2026-10-05.
+  - path: /.well-known/openid-configuration
+    status: 500
+  - path: /.well-known/oauth-authorization-server
+    status: 500
+  - path: /.well-known/oauth-protected-resource
+    status: 500
+  - path: /.well-known/api-catalog
+    status: 500
+  - path: /.well-known/ai-plugin.json
+    status: 500
+  - path: /.well-known/agent-card.json
+    status: 500
+  - path: /.well-known/agent.json
+    status: 500
+- host: adjuvomotion.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: adjuvomotion-security.txt
+    note: Same Plesk default as www; the apex and www resolve to the same host (194.213.127.60).
+  - path: /.well-known/openid-configuration
+    status: 500
+  - path: /.well-known/oauth-authorization-server
+    status: 500
+  - path: /.well-known/api-catalog
+    status: 500
+  - path: /.well-known/ai-plugin.json
+    status: 500
+  - path: /.well-known/agent-card.json
+    status: 500
+  - path: /.well-known/agent.json
+    status: 500
+- host: senseglove.gitlab.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    note: Cloudflare "Just a moment" interstitial — inconclusive, not a confirmed absence.
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+- host: unity.docs.senseglove.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: unreal.docs.senseglove.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
